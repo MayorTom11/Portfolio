@@ -160,7 +160,7 @@ img{
 /* Fin Nav Bar */
 /* Inicio Main*/
 #main{
-    background-image: url(img/Bg.jpg);
+    background-image: url(/img/Bg.jpg);
     background-size: cover;
     background-position: 70% 50%;
     position: relative;
