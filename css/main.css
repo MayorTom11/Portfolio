@@ -8,6 +8,7 @@ html{
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
+    scroll-padding-top: 60px;
 }
 a{
     text-decoration: none;
@@ -160,7 +161,7 @@ img{
 /* Fin Nav Bar */
 /* Inicio Main*/
 #main{
-    background-image: url(/img/Bg.jpg);
+    background-image: url(img/Bg.jpg);
     background-size: cover;
     background-position: 70% 50%;
     position: relative;
@@ -390,10 +391,15 @@ img{
     color: crimson;
 }
 #sobre-mi .sobre-mi{
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     font-weight: bold;
     letter-spacing: .2rem;
     margin: 15px 0;
+}
+#sobre-mi p{
+    font-size: 1.8rem;
+    margin-top: 30px;
+    line-height: 2.5rem;
 }
 #sobre-mi .cta{
     display: inline-block;
@@ -460,6 +466,7 @@ img{
     margin-bottom: 20px;
     box-shadow: -1px 5px 10px #262f3a;
     border-radius: 5px;
+    font-size: 1.6rem;
 }
 .medio:hover{
     box-shadow: -1px 5px 5px #262f3a;
@@ -581,6 +588,9 @@ img{
         text-align: center;
         line-height: 2rem;
         padding: 30px;
+    }
+    #sobre-mi p{
+        text-align: left;
     }
     #proyectos .proyectos{
         display: flex;
