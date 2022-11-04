@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+a{
+    text-decoration: none;
+}
+.main{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.brand p{
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+    font-size: bold;
+}
+.brand p span{
+    color: crimson;
+}
+/* Inicio Nav Bar */
+#header{
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+#header .header{
+    min-height: 8vh;
+    background-color: rgba(31, 30, 30, 0.24);
+    transition: .3s ease background-color;
+}
+#header .nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+#header .nav-list ul{
+    list-style: none;
+    position: absolute;
+    background-color: rgb(31, 30,30);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: .5s ease left;
+}
+#header .nav-list ul.active{
+    left: 0;
+}
+#header .nav-list ul a{
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+#header .nav-list ul a::after{
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 12rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after{
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+#header .nav-list ul li:hover a{
+    color: crimson;
+}
+#header .hamburguesa{
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    cursor: pointer;
+    transform: scale(.8);
+    margin: 10px 20px;
+}
+#header .hamburguesa::after{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: pulsos_hamburguesa 1s ease infinite;
+}
+#header .hamburguesa .bar{
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+#header .hamburguesa .bar::after,
+#header .hamburguesa .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+#header .hamburguesa .bar::after{
+    top: 8px;
+}
+#header .hamburguesa .bar::before{
+    bottom: 8px;
+}
+#header .hamburguesa.active .bar::after{
+    top: 0;
+}
+#header .hamburguesa.active .bar::before{
+    bottom: 0;
+}
+/* Fin Nav Bar */
+/* Inicio Main*/
+#main{
+    background-image: url(/img/Bg.jpg);
+    background-size: cover;
+    background-position: 70% 50%;
+    position: relative;
+    z-index: 1;
+}
+#main::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .7;
+    z-index: -1;
+}
+#main h1{
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: crimson;
+}
+#main h1 span{
+    display: block;
+}
+#main .hola, .nombre{
+    color: white;
+}
+#main .cta{
+    display: inline-block;
+    padding: 10px 30px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 30px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+#main .cta:hover{
+    color: white;
+    background-color: crimson;
+}
+/* Fin Main */
+
+/* Inicio Servicios */
+#servicios .container{
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+#servicios h2{
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+#servicios h2 span{
+    color: crimson;
+}
+#servicios .servicios-top p{
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    color: black;
+}
+#servicios .servicios-bot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#servicios .servicio-item{
+    flex-basis: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-image: url(/img/engranajes.jpg);
+    background-size: cover;
+    margin: 30px 5%;
+    position: relative;
+    z-index: 1;
+}
+#servicios .servicio-item::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #3d4a58 0%, #262f3a 100%);
+    opacity: .5;
+    border-radius: 10px;
+    z-index: -1;
+}
+#servicios .servicios-bot img{
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+#servicios .servicio-item .servicio{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+#servicios .servicio-item p{
+    color: white;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}
+/* Fin Servicios */
+
+/* Inicio Proyectos */
+#proyectos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#proyectos h2{
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+#proyectos h2 span{
+    color: crimson;
+}
+#proyectos .proyecto-items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+#proyectos .info-proyectos{
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    color: white;
+}
+#proyectos h3{
+    font-size: 2.8rem;
+    margin: 25px 0 15px;
+}
+#proyectos .titulo-proyecto{
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+#proyectos .info-proyectos p{
+    color: white;
+    font-size: 1.4rem;
+}
+#proyectos .imagen-proyecto{
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.proyecto-items:hover .imagen-proyecto{
+    transform: scale(1.1);
+    transition: .3s ease transform;
+}
+/* Fin Proyectos */
+
+/* Inicio Sobre Mi */
+#sobre-mi{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+#sobre-mi .col-izq{
+    width: 250px;
+    height: 360px;
+    margin-left: 23%;
+}
+#sobre-mi .col-der{
+    width: 100%;
+}
+#sobre-mi h2{
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+#sobre-mi h2 span{
+    color: crimson;
+}
+#sobre-mi .sobre-mi{
+    font-size: 2.4rem;
+    font-weight: bold;
+    letter-spacing: .2rem;
+    margin: 15px 0;
+}
+#sobre-mi p{
+    font-size: 1.8rem;
+    margin-top: 30px;
+    line-height: 2.5rem;
+}
+#sobre-mi .cta{
+    display: inline-block;
+    padding: 10px 20px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin: 50px 0;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+#sobre-mi .cta:hover{
+    color: white;
+    background-color: crimson;
+}
+#sobre-mi .col-izq .sobre-img{
+    height: 340px;
+    width: 250px;
+    position: relative;
+    border: 10px solid white;
+}
+#sobre-mi .col-izq .sobre-img::after{
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 19px;
+    height: 98%;
+    width: 98%;
+    border: 7px solid crimson;
+    z-index: -1;
+}
+/* Fin Sobre Mi */
+/* Inicio Info Contacto */
+#contacto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#contacto h2{
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+    text-align: center;
+}
+#contacto h2 span{
+    color: crimson;
+}
+.medio{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 200px;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    box-shadow: -1px 5px 10px #262f3a;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+.medio:hover{
+    box-shadow: -1px 5px 5px #262f3a;
+}
+.medio img{
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+.medio .titulo-medio{
+    font-size: 18px;
+    font-weight: bold;
+}
+.medio p{
+    font-weight: 500;
+}
+/* Fin Info Contacto */
+/* Inicio Footer */
+#footer{
+    margin-top: 50px;
+    padding: 30px 0;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#footer h3{
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    margin: 25px 0;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+#footer h3 span{
+    color: crimson;
+}
+#footer p{
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+/* Fin Footer */
+
+@media (min-width: 760px){
+    .servicios-top p{
+        width: 90%;
+        margin-left: 32px;
+    }
+    #servicios .servicio-item{
+        width: 40%;
+        float: left;
+    }
+    #servicios .servicio-item .servicio{
+        font-size: 15px;
+    }
+    #proyectos .proyecto-items:nth-child(even){
+        flex-direction: row-reverse
+    }
+    #proyectos .proyecto-items{
+        flex-direction: row;
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #proyectos .proyectos .info-proyectos{
+        height: 100%;
+    }
+    #proyectos .proyectos .imagen-proyecto{
+        height: 100%;
+    }
+    #sobre-mi h2{
+        margin-bottom: 50px;
+    }
+    #sobre-mi .sobre-container{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    #sobre-mi .col-izq{
+        margin-left: 30px;
+    }
+    #sobre-mi .col-der{
+        text-align: left;
+        line-height: 2rem;
+        padding: 30px;
+    }
+    #contacto .medio{
+        display: inline-flex;
+        margin: 0 20px;
+    }
+}
+@media (min-width: 1200px){
+    html{
+        scroll-padding-top: 60px;
+    }
+    #header .hamburguesa{
+        display: none;
+    }
+    #header .nav-list ul{
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+    #header .nav-list ul li{
+        display: inline-block;
+    }
+    #header .nav-list ul li a{
+        font-size: 2rem;
+    }
+    #header .nav-list ul a::after{
+        display: none;
+    }
+    #sobre-mi .col-der{
+        text-align: center;
+        line-height: 2rem;
+        padding: 30px;
+    }
+    #sobre-mi p{
+        text-align: left;
+    }
+    #proyectos .proyectos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    #proyectos .proyecto-items{
+        height: 400px;
+        margin: 0;
+        width: 80%;
+        border-radius: 5px;
+    }
+    .proyecto-items:hover .imagen-proyecto{
+        transform: scale(1.05);
+    }
+}
+@keyframes pulsos_hamburguesa{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
